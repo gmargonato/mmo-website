@@ -33,7 +33,7 @@ function ExpTableContent() {
 
   const getPageRange = () => {
     const startLevel = currentPage * 50 + 1
-    const endLevel = Math.min((currentPage + 1) * 50, 300) // Max level 300
+    const endLevel = Math.min((currentPage + 1) * 50, 600) // Max level 600
     return { startLevel, endLevel }
   }
 
@@ -77,7 +77,7 @@ function ExpTableContent() {
                 <input
                   type="number"
                   min="1"
-                  max="300"
+                  max="600"
                   value={calculatorLevel}
                   onChange={(e) => setCalculatorLevel(e.target.value)}
                   className="px-2 py-1 border border-gray-400 rounded w-20"
@@ -116,8 +116,8 @@ function ExpTableContent() {
           
           <button
             onClick={() => setCurrentPage(currentPage + 1)}
-            disabled={endLevel >= 300}
-            className={`ml-4 ${endLevel >= 300 ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-80'}`}
+            disabled={endLevel >= 600}
+            className={`ml-4 ${endLevel >= 600 ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-80'}`}
           >
             <img src="ui/arrow-up.gif" alt="Next" className="w-6 h-6 transform rotate-90" />
           </button>
