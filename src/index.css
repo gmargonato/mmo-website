@@ -1,0 +1,349 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Rich text editor content styles */
+.ql-editor {
+  min-height: 200px;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+}
+
+.ql-toolbar {
+  border-top: 1px solid #ccc !important;
+  border-left: 1px solid #ccc !important;
+  border-right: 1px solid #ccc !important;
+  border-bottom: none !important;
+}
+
+.ql-container {
+  border-bottom: 1px solid #ccc !important;
+  border-left: 1px solid #ccc !important;
+  border-right: 1px solid #ccc !important;
+  border-top: none !important;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+/* Quill editor content styling */
+.ql-editor h1,
+.ql-editor h2,
+.ql-editor h3,
+.ql-editor h4,
+.ql-editor h5,
+.ql-editor h6 {
+  margin: 0.5em 0;
+  font-weight: bold;
+}
+
+.ql-editor p {
+  margin: 0.5em 0;
+  line-height: 1.6;
+}
+
+.ql-editor ul,
+.ql-editor ol {
+  margin: 0.5em 0;
+  padding-left: 1.5em;
+}
+
+.ql-editor li {
+  margin: 0.25em 0;
+  line-height: 1.6;
+}
+
+.ql-editor li::marker {
+  color: #5A2800;
+}
+
+.ql-editor a {
+  color: #007AFF;
+  text-decoration: underline;
+}
+
+.ql-editor strong {
+  font-weight: bold;
+}
+
+.ql-editor em {
+  font-style: italic;
+}
+
+/* Fix for ReactQuill popup dialogs positioning and z-index */
+.ql-tooltip {
+  z-index: 999999 !important;
+  position: absolute !important;
+  margin: 0 !important;
+}
+
+.ql-toolbar .ql-picker-options {
+  z-index: 999999 !important;
+  position: absolute !important;
+}
+
+.ql-editor .ql-tooltip {
+  z-index: 999999 !important;
+  position: absolute !important;
+}
+
+/* Ensure ReactQuill container doesn't clip popups */
+.ql-container {
+  overflow: visible !important;
+}
+
+.ql-editor {
+  overflow: visible !important;
+}
+
+/* Position link tooltip near the toolbar */
+.ql-toolbar + .ql-tooltip {
+  top: -60px !important;
+  left: 0 !important;
+  right: auto !important;
+  transform: none !important;
+}
+
+/* Ensure tooltips can extend beyond modal boundaries */
+.new-article-dialog .ql-tooltip {
+  position: fixed !important;
+  z-index: 999999 !important;
+}
+
+/* Override any parent positioning constraints for link tooltips */
+.ql-tooltip[data-mode="link"] {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 999999 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  background: white;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* Create a portal-like container for ReactQuill popups */
+.new-article-dialog {
+  /* Ensure the modal itself has proper positioning */
+  position: relative !important;
+  z-index: 50;
+}
+
+.new-article-dialog .ql-container,
+.new-article-dialog .ql-editor {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+/* Create a high-level container for all ReactQuill popups */
+.new-article-dialog::before {
+  content: '';
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999998;
+  pointer-events: none;
+}
+
+/* Preview container styles */
+.article-preview {
+  color: #5A2800;
+}
+
+/* Article content styles for rendered ReactQuill HTML */
+.article-content {
+  color: #5A2800;
+}
+
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content h4,
+.article-content h5,
+.article-content h6 {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  color: #5A2800;
+}
+
+.article-content h1 {
+  font-size: 1.5em;
+}
+
+.article-content h2 {
+  font-size: 1.3em;
+}
+
+.article-content h3 {
+  font-size: 1.1em;
+}
+
+.article-content p {
+  margin-bottom: 0.5em;
+  line-height: 1.4;
+  color: #5A2800;
+}
+
+.article-content ul,
+.article-content ol {
+  margin-bottom: 1em;
+  padding-left: 2em;
+  color: #5A2800;
+  list-style-type: disc;
+}
+
+.article-content li {
+  margin-bottom: 0.3em;
+  line-height: 1.4;
+  color: #5A2800;
+}
+
+.article-content li::marker {
+  color: #5A2800;
+}
+
+.article-content a {
+  color: #007AFF;
+  text-decoration: underline;
+}
+
+.article-content strong {
+  font-weight: bold;
+  color: #5A2800;
+}
+
+.article-content em {
+  font-style: italic;
+  color: #5A2800;
+}
+
+.article-preview h1,
+.article-preview h2,
+.article-preview h3,
+.article-preview h4,
+.article-preview h5,
+.article-preview h6 {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  color: #5A2800;
+}
+
+.article-preview h1 {
+  font-size: 1.5em;
+}
+
+.article-preview h2 {
+  font-size: 1.3em;
+}
+
+.article-preview h3 {
+  font-size: 1.1em;
+}
+
+.article-preview p {
+  margin-bottom: 1em;
+  line-height: 1.6;
+  color: #5A2800;
+}
+
+.article-preview ul,
+.article-preview ol {
+  margin-bottom: 1em;
+  padding-left: 2em;
+  color: #5A2800;
+  list-style-type: disc;
+}
+
+.article-preview li {
+  margin-bottom: 0.5em;
+  line-height: 1.6;
+  color: #5A2800;
+}
+
+.article-preview li::marker {
+  color: #5A2800;
+}
+
+.article-preview a {
+  color: #007AFF;
+  text-decoration: underline;
+}
+
+.article-preview strong {
+  font-weight: bold;
+  color: #5A2800;
+}
+
+.article-preview em {
+  font-style: italic;
+  color: #5A2800;
+}
+
+/* Specific styles for preview content */
+.preview-content h1,
+.preview-content h2,
+.preview-content h3,
+.preview-content h4,
+.preview-content h5,
+.preview-content h6 {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  color: #5A2800;
+}
+
+.preview-content h1 {
+  font-size: 1.5em;
+}
+
+.preview-content h2 {
+  font-size: 1.3em;
+}
+
+.preview-content h3 {
+  font-size: 1.1em;
+}
+
+.preview-content p {
+  margin-bottom: 1em;
+  line-height: 1.6;
+  color: #5A2800;
+}
+
+.preview-content ul,
+.preview-content ol {
+  margin-bottom: 1em;
+  padding-left: 2em;
+  color: #5A2800;
+}
+
+.preview-content li {
+  margin-bottom: 0.5em;
+  line-height: 1.6;
+  color: #5A2800;
+  list-style-type: disc;
+}
+
+.preview-content li::marker {
+  color: #5A2800;
+}
+
+.preview-content a {
+  color: #007AFF;
+  text-decoration: underline;
+}
+
+.preview-content strong {
+  font-weight: bold;
+  color: #5A2800;
+}
+
+.preview-content em {
+  font-style: italic;
+  color: #5A2800;
+}

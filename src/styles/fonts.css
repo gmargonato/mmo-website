@@ -1,0 +1,24 @@
+
+@font-face {
+  font-family: 'Martel';
+  src: url('/fonts/martel.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bart Bold';
+  src: url('/fonts/bart_bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Belwe Bold';
+  src: url('/fonts/belwe_bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
