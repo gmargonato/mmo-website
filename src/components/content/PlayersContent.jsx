@@ -193,7 +193,7 @@ function PlayersContent() {
                     </tr>
                     <tr>
                       <td className="py-1 font-bold border-r border-gray-400">Último Login:</td>
-                      <td className="py-1 px-3">{searchedPlayer.last_login ? new Date(searchedPlayer.last_login * 1000).toLocaleString('pt-BR') : '01/01/1970, 06:08:00'}</td>
+                      <td className="py-1 px-3">{searchedPlayer.last_login || 'Never'}</td>
                     </tr>
                   </tbody>
                 </table>
