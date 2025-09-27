@@ -14,19 +14,31 @@ export default {
     },
     extend: {
       colors: {
-
         blue: '#007AFF',
-
         backgroundBlue:  '#041121',
         backgroundGreen: '#071D1D',
-
         backgroundBeige: '#FEEFD8',
         backgroundBeigeDark: '#D4C0A1',
         backgroundBrown: '#DEBB9D',
         backgroundDust: '#5F4D41',
-
         fontBeige: '#EFCEA4',
         fontBrown: '#5A2800',
+      },
+      transformStyle: {
+        '3d': 'preserve-3d',
+      },
+      perspective: {
+        '1000': '1000px',
+      },
+      backfaceVisibility: {
+        'hidden': 'hidden',
+      },
+      rotate: {
+        'y-180': 'rotateY(180deg)',
+      },
+      transform: {
+        'flip': 'rotateY(180deg)',
+        'flip-back': 'rotateY(0deg)',
       },
       fontFamily: {
         'martel': ['Martel', 'serif'],

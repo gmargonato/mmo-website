@@ -65,7 +65,7 @@ function ExpTableContent() {
         {/* Introduction */}
         <div className="flex flex-col md:flex-row gap-6 mb-8">
           <div className="flex-1 text-md space-y-4">
-            <p>Em Aldória OT Server, você evolui muito mais rápido! Aqui você ganha 2x mais experiência no New Aldória, e 5x mais no Old Official.</p>
+            <p>Em Aldória OT Server, você evolui muito mais rápido! Aqui você ganha 2x mais experiência no New Aldória, e 5x mais no Old Aldória.</p>
 
             
             {/* Experience Calculator */}
@@ -111,7 +111,7 @@ function ExpTableContent() {
           </button>
           
           <h2 className="font-bold text-xl">
-            Tabela de Experiência (Levels {startLevel}-{endLevel})
+            Níveis {startLevel}-{endLevel}
           </h2>
           
           <button

@@ -22,7 +22,7 @@ function ForumContent() {
       
       <div className="ring-1 ring-fontBrown text-center items-center text-fontBrown p-6 ml-1 mr-1 bg-backgroundBeige">
         
-        <img src="/assets/orcsoberfest.png" className="w-full max-w-[500px] h-full mb-6 mx-auto" />
+        <img src="/assets/friends_1.png" className="w-full max-w-[500px] h-full mb-6 mx-auto" />
         <button 
           onClick={() => { window.open(ForumLink , '_blank') }}
           className="

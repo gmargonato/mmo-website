@@ -2,6 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 3D Transform utilities for card flip animation */
+.perspective-1000 {
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+}
+
+/* Ensure smooth transitions */
+.flip-transition {
+  transition: transform 0.6s ease-in-out;
+  -webkit-transition: -webkit-transform 0.6s ease-in-out;
+}
+
 /* Rich text editor content styles */
 .ql-editor {
   min-height: 200px;

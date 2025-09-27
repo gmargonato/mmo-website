@@ -243,7 +243,7 @@ function NewsArticle() {
             textShadow: '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000'
           }}
           >
-            Ultimas Notícias
+            Anúncios
           </h1>
           {/* Only visible for authenticated users */}
           {user && (
@@ -342,7 +342,7 @@ function NewsArticle() {
           textShadow: '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000'
         }}
         >
-          Artigos
+          Notícias
         </h1>
       </div>
 

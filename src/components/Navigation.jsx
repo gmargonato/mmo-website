@@ -9,6 +9,7 @@ const navigationItems = [
   { label: 'Experiência', contentType: 'experience', icon: 'ui/nav-exp.gif' },
   { label: 'Rank',  contentType: 'rankings', icon: 'ui/nav-ranks.gif' },
   { label: 'Jogadores', contentType: 'characters', icon: 'ui/nav-char2.gif' },
+  { label: 'Mortes', contentType: 'deaths', icon: 'ui/nav-skull.gif' },
   { label: 'Mapa',      contentType: 'map', icon: 'ui/nav-map.gif' },
   { label: 'Fórum',     contentType: 'forum', icon: 'ui/nav-forum.gif' },
   { label: 'Loja',      contentType: 'shop', icon: 'ui/nav-char1.gif' },

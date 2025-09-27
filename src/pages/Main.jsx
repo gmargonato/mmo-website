@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Navigation from '../components/Navigation'
 import ServerInfo from '../components/ServerInfo'
+import QuickLinks from '../components/QuickLinks'
 import NewsArticle from '../components/content/NewsArticle'
 import AboutContent from '../components/content/AboutContent'
 import DownloadContent from '../components/content/DownloadContent'
@@ -13,6 +14,7 @@ import PlayersContent from '../components/content/PlayersContent'
 import RulesContent from '../components/content/RulesContent'
 import ExpTableContent from '../components/content/ExpTableContent'
 import ShopContent from '../components/content/ShopContent'
+import DeathContent from '../components/content/DeathContent'
 
 const contentComponents = {
   'news': NewsArticle,
@@ -26,6 +28,7 @@ const contentComponents = {
   'rules': RulesContent,
   'experience': ExpTableContent,
   'shop': ShopContent,
+  'deaths': DeathContent,
   // Add other implemented components here
 }
 
@@ -33,6 +36,7 @@ function Main() {
   const [currentContent, setCurrentContent] = useState('news')
   const [backgroundImage, setBackgroundImage] = useState('/wallpapers/1.jpg')
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
 
   const backgrounds = [
     '/wallpapers/1.jpg',
@@ -47,6 +51,13 @@ function Main() {
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * backgrounds.length)
     setBackgroundImage(backgrounds[randomIndex])
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
   }, [])
 
   const handleContentChange = (contentType) => {
@@ -63,7 +74,7 @@ function Main() {
     <section 
       className="min-h-screen bg-backgroundBlue"
       style={{
-        backgroundImage: `url("${backgroundImage}")`,
+        backgroundImage: !isMobile ? `url("${backgroundImage}")` : 'none',
         backgroundSize: 'cover',
         backgroundPosition: 'top',
         backgroundRepeat: 'no-repeat',
@@ -115,70 +126,7 @@ function Main() {
         {/* Main Content */}
         <main className="mt-5 md:mt-44 pt-20 md:pt-12 px-0 md:px-2">
 
-          {/* Fixed bar with links */}
-          <img src="ui/corner-tl.gif" alt="Border" className="w-auto h-[17px] -mb-[16px]" />
-          <div 
-            className="px-0 py-1 -mb-1"
-            style={{
-              backgroundImage: 'url("ui/border-center.gif")',
-              backgroundRepeat: 'repeat-x',
-              backgroundPosition: 'left top'
-            }}
-          />
-          <div 
-            className="px-4 py-0"
-            style={{
-              backgroundImage: 'url("ui/title-red.gif")',
-              backgroundRepeat: 'repeat-x',
-              backgroundPosition: 'left top'
-            }}
-          >
-            <div className="flex flex-row justify-between items-center gap-2 md:gap-4">
-              <h1 className="text-white font-martel text-2xl"
-              style={{
-                textShadow: '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000'
-              }}
-              >Links Úteis</h1>
-              
-              <div className="flex items-center gap-4 -mt-1.5">
-                <a 
-                  href="https://discord.com/invite/UcMb8TFT5v" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-white text-xs underline flex items-center gap-1"
-                  style={{
-                    textShadow: '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000'
-                  }}
-                >
-                  <svg width="20"  height="20"  viewBox="0 0 24 24"  fill="currentColor"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14.983 3l.123 .006c2.014 .214 3.527 .672 4.966 1.673a1 1 0 0 1 .371 .488c1.876 5.315 2.373 9.987 1.451 12.28c-1.003 2.005 -2.606 3.553 -4.394 3.553c-.732 0 -1.693 -.968 -2.328 -2.045a21.512 21.512 0 0 0 2.103 -.493a1 1 0 1 0 -.55 -1.924c-3.32 .95 -6.13 .95 -9.45 0a1 1 0 0 0 -.55 1.924c.717 .204 1.416 .37 2.103 .494c-.635 1.075 -1.596 2.044 -2.328 2.044c-1.788 0 -3.391 -1.548 -4.428 -3.629c-.888 -2.217 -.39 -6.89 1.485 -12.204a1 1 0 0 1 .371 -.488c1.439 -1.001 2.952 -1.459 4.966 -1.673a1 1 0 0 1 .935 .435l.063 .107l.651 1.285l.137 -.016a12.97 12.97 0 0 1 2.643 0l.134 .016l.65 -1.284a1 1 0 0 1 .754 -.54l.122 -.009zm-5.983 7a2 2 0 0 0 -1.977 1.697l-.018 .154l-.005 .149l.005 .15a2 2 0 1 0 1.995 -2.15zm6 0a2 2 0 0 0 -1.977 1.697l-.018 .154l-.005 .149l.005 .15a2 2 0 1 0 1.995 -2.15z" /></svg>
-                  <span>Discord</span>
-                </a>
-                <a 
-                  href="https://chat.whatsapp.com/ET23s3FEpBnHVtzYQruR5l" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-white text-xs underline flex items-center gap-1"
-                  style={{
-                    textShadow: '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000'
-                  }}
-                >
-                  <svg width="20"  height="20"  viewBox="0 0 24 24"  fill="currentColor"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18.497 4.409a10 10 0 0 1 -10.36 16.828l-.223 -.098l-4.759 .849l-.11 .011a1 1 0 0 1 -.11 0l-.102 -.013l-.108 -.024l-.105 -.037l-.099 -.047l-.093 -.058l-.014 -.011l-.012 -.007l-.086 -.073l-.077 -.08l-.067 -.088l-.056 -.094l-.034 -.07l-.04 -.108l-.028 -.128l-.012 -.102a1 1 0 0 1 0 -.125l.012 -.1l.024 -.11l.045 -.122l1.433 -3.304l-.009 -.014a10 10 0 0 1 1.549 -12.454l.215 -.203a10 10 0 0 1 13.226 -.217m-8.997 3.09a1.5 1.5 0 0 0 -1.5 1.5v1a6 6 0 0 0 6 6h1a1.5 1.5 0 0 0 0 -3h-1l-.144 .007a1.5 1.5 0 0 0 -1.128 .697l-.042 .074l-.022 -.007a4.01 4.01 0 0 1 -2.435 -2.435l-.008 -.023l.075 -.041a1.5 1.5 0 0 0 .704 -1.272v-1a1.5 1.5 0 0 0 -1.5 -1.5" /></svg>
-                  <span>WhatsApp</span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <img src="ui/corner-bl.gif" alt="Border" className="w-auto h-[17px] absolute -mt-4" />
-          <div 
-            className="px-0 py-1 -mt-[7px]"
-            style={{
-              backgroundImage: 'url("ui/border-center.gif")',
-              backgroundRepeat: 'repeat-x',
-              backgroundPosition: 'left'
-            }}
-          />
-          <span className="block h-5"></span>
-          {/* End of Fixed Bar */}
+          <QuickLinks />
           
           {/* Top Border */}
           <img src="ui/corner-tl.gif" alt="Border" className="w-auto h-[17px] -mb-[16px]" />
@@ -206,7 +154,7 @@ function Main() {
 
         {/* Right Server Info - Hidden on small and medium */}
         <div className="hidden lg:block pt-4">
-          <ServerInfo />
+          <ServerInfo onContentChange={handleContentChange} />
         </div>
       </div>
       <p className="text-white text-center text-xs mt-4 mb-4">Copyright {new Date().getFullYear()} por GM Aldo. Todos os direitos reservados.</p>

@@ -3,7 +3,7 @@ import { ClientDownloadLink } from '../constants';
 import ImagePreviewDialog from './dialogs/ImagePreviewDialog';
 import { supabase } from '../lib/supabase';
 
-function ServerInfo() {
+function ServerInfo({ onContentChange }) {
   const [currentMonster, setCurrentMonster] = useState('');
   const [showImagePreview, setShowImagePreview] = useState(false);
   const [playerCount, setPlayerCount] = useState(0);
@@ -12,8 +12,9 @@ function ServerInfo() {
     try {
       const { count, error } = await supabase
         .from('players')
-        .select('name', { count: 'exact', head: true })
-        .eq('access', 0);
+        .select('*', { count: 'exact', head: true })
+        // .eq('access', 0)
+        // .eq('server', 'New');
       
       if (error) throw error;
       setPlayerCount(count || 0);
@@ -56,11 +57,16 @@ function ServerInfo() {
         <div className="cursor-pointer">
           <img 
             src="ui/box-free.png" 
-            className="w-auto mt-1.5 relative z-[5]" 
+            className="w-auto mt-1.5 relative z-[5] hover:brightness-110" 
             onClick={() => setShowImagePreview(true)}
             alt="Free Server"
           />
-          <img src="ui/box-premium.gif" className="w-auto mt-5" />
+          <img 
+            src="ui/box-premium.gif" 
+            className="w-auto mt-5 cursor-pointer hover:brightness-110" 
+            onClick={() => onContentChange && onContentChange('shop')}
+            alt="Premium Shop"
+          />
           {/* <img src="/box-whatsapp.png" className="w-auto mt-5" onClick={() => { window.open('https://chat.whatsapp.com/ET23s3FEpBnHVtzYQruR5l', '_blank') }}/>
           <img src="/box-discord.png" className="w-auto mt-5" onClick={() => { window.open('https://discord.com/invite/UcMb8TFT5v', '_blank') }}/> */}
         </div>

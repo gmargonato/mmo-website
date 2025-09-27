@@ -18,8 +18,9 @@ function Index() {
     try {
       const { count, error } = await supabase
         .from('players')
-        .select('name', { count: 'exact', head: true })
-        .eq('access', 0);
+        .select('*', { count: 'exact', head: true })
+        // .eq('access', 0)
+        // .eq('server', 'New');
       
       if (error) throw error;
       setPlayerCount(count || 0);

@@ -166,6 +166,8 @@ function RankingsContent() {
   const filteredPlayers = players
     .filter(player => {
       if (filters.vocation && player.vocation_name !== filters.vocation) return false
+      if (filters.server === 'novo' && player.server !== 'New') return false
+      if (filters.server === 'antigo' && player.server !== 'Old') return false
       return true
     })
     .sort((a, b) => {
@@ -286,10 +288,9 @@ function RankingsContent() {
                       value="antigo"
                       checked={filters.server === 'antigo'}
                       onChange={handleFilterChange}
-                      disabled
-                      className="mr-2 opacity-50 cursor-not-allowed"
+                      className="mr-2"
                     />
-                    <label htmlFor="antigo-servidor" className="text-sm opacity-50">Old Aldória</label>
+                    <label htmlFor="antigo-servidor" className="text-sm">Old Aldória</label>
                   </div>
                 </div>
               </div>
